@@ -10,24 +10,23 @@ function App() {
     const [favoritos, setFavoritos] = useState([]);
 
     function agregar(mascota) {
-        setFavoritos([...favoritos, mascota]);
-
+        setFavoritos((actuales) => [...actuales, mascota]);
     }
 
     function quitar(id) {
-        setFavoritos(favoritos.filter((m) => m.id !== id ));
+        setFavoritos((actuales) => actuales.filter((mascota) => mascota.id !== id));
     }
 
     return (
-        <>
-            <Navbar total={favoritos.length} pantalla={pantalla} irA={setPantalla}/>
-            {pantalla === 'inicio' ? ( 
-               <inicio favoritos={favoritos} onAgregar={agregar}/>
+        <div className="app-shell">
+            <Navbar total={favoritos.length} pantalla={pantalla} irA={setPantalla} />
+            {pantalla === 'inicio' ? (
+                <Inicio favoritos={favoritos} onAgregar={agregar} />
             ) : (
-                <favoritos favoritos={favoritos} onQuita={quitar}/>
-            
-            )}    
-        </>
+                <Favoritos favoritos={favoritos} onQuitar={quitar} />
+            )}
+            <Footer />
+        </div>
     );
 }
 
