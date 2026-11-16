@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.links a,
+.links button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #334155;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #fff7ed, #ffedd5);
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.hero-texto {
+  max-width: 480px;
+}
+
+.hero-etiqueta {
+  display: inline-block;
+  background: #ffffff;
+  color: #c2410c;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  color: #0f172a;
+  margin-bottom: 0.8rem;
+}
+
+.hero h1 span {
+  color: #ea580c;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: #78350f;
+  margin-bottom: 1.5rem;
+}
+
+.hero-boton {
+  display: inline-block;
+  background: #ea580c;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.hero-boton:hover {
+  background: #c2410c;
+  transform: scale(1.05);
+}
+
+.hero-foto {
+  width: 380px;
+  max-width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.3);
+  border: 6px solid #ffffff;
+}
+
+/* En celular: foto arriba, texto abajo */
+@media (max-width: 800px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Contenedor de tarjetas */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto 4rem auto;
+  padding: 0 1.5rem;
+  justify-items: center;
+}
+
+/* Tarjeta simple (la usa la pantalla de Favoritos) */
+.card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.card p {
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.card button {
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.card button:hover {
+  background-color: #15803d;
+}
+
+/* Tarjeta de mascota */
+.pet {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  background: #ffffff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pet:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(234, 88, 12, 0.2);
+}
+
+/* Marca de agua de huella */
+.pet::after {
+  content: '🐾';
+  position: absolute;
+  right: -10px;
+  bottom: -18px;
+  font-size: 7rem;
+  opacity: 0.07;
+  transform: rotate(-20deg);
+  pointer-events: none;
+}
+
+.pet-foto {
+  position: relative;
+  height: 230px;
+  background: #fed7aa;
+}
+
+.pet-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Huellita sobre la foto */
+.pet-huella {
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: #ea580c;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.pet-info {
+  padding: 2rem 1.5rem 1.6rem;
+  text-align: center;
+}
+
+.pet-info h3 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+}
+
+.pet-tag {
+  display: inline-block;
+  background: #ffedd5;
+  color: #c2410c;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 0.8rem;
+}
+
+.pet-info p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+.pet-info button {
+  background: #ea580c;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.pet-info button:hover {
+  background: #c2410c;
+  transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #0f172a;
+  color: #f8fafc;
+  margin-top: auto;
+}
